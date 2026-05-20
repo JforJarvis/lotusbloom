@@ -127,22 +127,27 @@ export default function Hero() {
         .btn__arrow{font-size:clamp(11px,1.2vw,15px);transition:transform .3s ease}
         .btn:hover .btn__arrow{transform:translateX(3px)}
 
-        .lotus{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:20;pointer-events:none;display:flex;align-items:center;justify-content:center}
-        .lotus__outer{position:relative;width:clamp(100px,10vw,130px);height:clamp(100px,10vw,130px);border-radius:50%;display:flex;align-items:center;justify-content:center}
+        /* ═══ UNIFIED DIVIDER + LOTUS ═══ */
+        .divider{position:absolute;left:50%;top:0;bottom:0;width:0;z-index:18;pointer-events:none;display:flex;align-items:center;justify-content:center}
+        .divider__line{position:absolute;left:-1.5px;top:0;bottom:0;width:3px;background:linear-gradient(180deg,transparent 2%,rgba(201,169,78,.15) 15%,rgba(201,169,78,.45) 42%,rgba(201,169,78,.08) 48%,rgba(201,169,78,.08) 52%,rgba(201,169,78,.45) 58%,rgba(201,169,78,.15) 85%,transparent 98%);box-shadow:0 0 8px rgba(201,169,78,.15),0 0 20px rgba(201,169,78,.06)}
+        .divider__shimmer{position:absolute;left:-1.5px;width:3px;height:60px;background:linear-gradient(180deg,transparent,rgba(201,169,78,.6),transparent);animation:shimmer 5s ease-in-out infinite}
+        .divider__bloom{position:absolute;left:-22px;width:44px;top:0;bottom:0;background:linear-gradient(180deg,transparent 20%,rgba(201,169,78,.06) 45%,rgba(201,169,78,.08) 50%,rgba(201,169,78,.06) 55%,transparent 80%);filter:blur(10px)}
+
+        /* Lotus — child of divider, auto-centered at 50% */
+        .divider__lotus{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:clamp(100px,10vw,130px);height:clamp(100px,10vw,130px)}
+
+        /* Golden burst behind the lotus where it meets the line */
+        .lotus__burst{position:absolute;inset:-40px;background:radial-gradient(circle,rgba(201,169,78,.18) 0%,rgba(201,169,78,.06) 35%,transparent 65%);filter:blur(10px);animation:breathe 3s ease-in-out infinite}
+        .lotus__glow{position:absolute;inset:-24px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,78,.10) 0%,rgba(201,169,78,.03) 50%,transparent 70%);filter:blur(6px);animation:breathe 4s ease-in-out .5s infinite}
         .lotus__ring-3{position:absolute;inset:-18px;border-radius:50%;border:1px solid rgba(201,169,78,.06);animation:breathe 5s ease-in-out 1s infinite}
-        .lotus__ring-2{position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(201,169,78,.12);animation:breathe 4s ease-in-out .5s infinite}
-        .lotus__ring-1{width:100%;height:100%;border-radius:50%;border:2px solid rgba(201,169,78,.40);display:flex;align-items:center;justify-content:center;background:rgba(4,4,6,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 0 30px var(--gold-glow),0 0 60px rgba(201,169,78,.08);animation:glowRing 4s ease-in-out infinite;position:relative}
+        .lotus__ring-2{position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(201,169,78,.14);animation:breathe 4s ease-in-out .5s infinite}
+        .lotus__ring-1{width:100%;height:100%;border-radius:50%;border:2px solid rgba(201,169,78,.40);display:flex;align-items:center;justify-content:center;background:rgba(4,4,6,.80);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 0 30px var(--gold-glow),0 0 60px rgba(201,169,78,.08);animation:glowRing 4s ease-in-out infinite;position:relative}
         .lotus__ring-inner{position:absolute;inset:7px;border-radius:50%;border:1px solid rgba(201,169,78,.20)}
-        .lotus__glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,78,.10) 0%,rgba(201,169,78,.03) 50%,transparent 70%);filter:blur(6px);animation:breathe 3s ease-in-out infinite}
         .lotus__img{width:clamp(48px,5vw,64px);height:auto;object-fit:contain;filter:drop-shadow(0 0 8px var(--gold-glow));position:relative;z-index:1}
 
-        .divider{position:absolute;left:50%;top:0;bottom:0;width:3px;margin-left:-1.5px;z-index:15;pointer-events:none;background:linear-gradient(180deg,transparent 2%,rgba(201,169,78,.15) 15%,rgba(201,169,78,.45) 45%,rgba(201,169,78,.55) 50%,rgba(201,169,78,.45) 55%,rgba(201,169,78,.15) 85%,transparent 98%);box-shadow:0 0 8px rgba(201,169,78,.15),0 0 20px rgba(201,169,78,.06)}
-        .divider__shimmer{position:absolute;width:100%;height:60px;background:linear-gradient(180deg,transparent,rgba(201,169,78,.6),transparent);animation:shimmer 5s ease-in-out infinite}
-        .divider__bloom{position:absolute;left:-20px;width:43px;top:0;bottom:0;background:linear-gradient(180deg,transparent 20%,rgba(201,169,78,.06) 45%,rgba(201,169,78,.08) 50%,rgba(201,169,78,.06) 55%,transparent 80%);filter:blur(10px)}
-        .divider__glow{position:absolute;left:-6px;width:15px;top:0;bottom:0;background:linear-gradient(180deg,transparent 30%,rgba(201,169,78,.04) 50%,transparent 70%);filter:blur(4px)}
-
         .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:clamp(12px,2.5vw,24px) clamp(16px,4.5vw,56px);padding-top:max(clamp(12px,2.5vw,24px),env(safe-area-inset-top))}
-        .nav__left{display:flex;align-items:center;gap:clamp(8px,1.2vw,12px)}
+        .nav__left{display:flex;align-items:center;gap:clamp(8px,1.2vw,12px);text-decoration:none;cursor:pointer;transition:opacity .3s ease}
+        .nav__left:hover{opacity:.85}
         .nav__logo{width:clamp(36px,4.2vw,54px);height:auto;object-fit:contain}
         .nav__brand{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.8vw,32px);font-weight:600;font-style:italic;color:var(--gold);text-shadow:0 0 20px rgba(201,169,78,.15)}
         .nav__links{display:flex;gap:clamp(16px,2.5vw,36px);align-items:center}
@@ -161,11 +166,7 @@ export default function Hero() {
           .desc{font-size:clamp(12px,3vw,14px);max-width:none}
           .btn{padding:12px 22px;font-size:9px}
           .divider{display:none}
-          .lotus{top:50vh;top:50dvh}
-          .lotus__outer{width:86px;height:86px}
-          .lotus__img{width:44px;height:44px}
-          .lotus__ring-3{inset:-14px}
-          .lotus__ring-2{inset:-6px}
+          .divider__lotus{display:none}
           .nav__links{gap:14px}
           .nav__link{font-size:11px}
         }
@@ -173,8 +174,6 @@ export default function Hero() {
           .panel__content{padding:clamp(48px,8vh,70px) 18px clamp(22px,4vh,36px)}
           .title{font-size:clamp(24px,8vw,36px)}
           .btn{padding:11px 18px;font-size:8px;letter-spacing:.10em}
-          .lotus__outer{width:74px;height:74px}
-          .lotus__img{width:38px;height:38px}
           .nav__links{display:none}
         }
         @media(max-width:375px){
@@ -184,10 +183,10 @@ export default function Hero() {
       `}</style>
 
       <motion.nav className="nav" initial={{opacity:0,y:-10}} animate={{opacity:ready?1:0,y:ready?0:-10}} transition={{duration:.5,delay:.1}}>
-        <div className="nav__left">
+        <a href="/" className="nav__left">
           <img className="nav__logo" src="/nav-logo.png" alt="LotusBloom"/>
           <span className="nav__brand">LotusBloom</span>
-        </div>
+        </a>
         <div className="nav__links">
           <a className="nav__link nav__link--active" href="#">Home</a>
           <a className="nav__link" href="#">About</a>
@@ -201,8 +200,16 @@ export default function Hero() {
         <Panel side="left" hover={L} ready={ready} px={px} py={py} onEnter={()=>setHov('left')} onLeave={()=>setHov(null)} onTap={()=>setHov(h=>h==='left'?null:'left')}/>
         <Panel side="right" hover={R} ready={ready} px={px} py={py} onEnter={()=>setHov('right')} onLeave={()=>setHov(null)} onTap={()=>setHov(h=>h==='right'?null:'right')}/>
 
-        <motion.div className="lotus" initial={{opacity:0,scale:.85}} animate={{opacity:ready?1:0,scale:ready?1:.85,y:py*-8}} transition={{duration:.6,delay:.2}}>
-          <div className="lotus__outer">
+        {/* DIVIDER + LOTUS — one unified element */}
+        <div className="divider">
+          <div className="divider__line"/>
+          <div className="divider__shimmer"/>
+          <div className="divider__bloom"/>
+          <motion.div className="divider__lotus"
+            initial={{opacity:0,scale:.85}}
+            animate={{opacity:ready?1:0,scale:ready?1:.85}}
+            transition={{duration:.6,delay:.2}}>
+            <div className="lotus__burst"/>
             <div className="lotus__glow"/>
             <div className="lotus__ring-3"/>
             <div className="lotus__ring-2"/>
@@ -210,9 +217,8 @@ export default function Hero() {
               <div className="lotus__ring-inner"/>
               <img className="lotus__img" src="/lotus-flower.png" alt=""/>
             </div>
-          </div>
-        </motion.div>
-        <div className="divider"><div className="divider__shimmer"/><div className="divider__bloom"/><div className="divider__glow"/></div>
+          </motion.div>
+        </div>
       </div>
     </div>
   )
