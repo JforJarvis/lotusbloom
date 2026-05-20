@@ -4,10 +4,15 @@ export const metadata = {
   title: 'LotusBloom LLC — Data Operations & Agriculture',
   description: 'Intelligent Systems. Smarter Decisions. Sustainable Farming. Healthier Futures.',
   icons: { icon: '/favicon.png', apple: '/logo.png' },
-  openGraph: { title: 'LotusBloom LLC', description: 'Data Operations & Agriculture', images: ['/hero.jpg'] },
 }
 
-export const viewport = { width: 'device-width', initialScale: 1, maximumScale: 1, themeColor: '#020204', viewportFit: 'cover' }
+export const viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: '#020204',
+  viewportFit: 'cover',
+}
 
 export default function RootLayout({ children }) {
   return (
