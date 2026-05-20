@@ -134,7 +134,7 @@ export default function Hero() {
         .divider__bloom{position:absolute;left:-22px;width:44px;top:0;bottom:0;background:linear-gradient(180deg,transparent 20%,rgba(201,169,78,.06) 45%,rgba(201,169,78,.08) 50%,rgba(201,169,78,.06) 55%,transparent 80%);filter:blur(10px)}
 
         /* Lotus — child of divider, auto-centered at 50% */
-        .divider__lotus{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:2;display:flex;align-items:center;justify-content:center;width:clamp(100px,10vw,130px);height:clamp(100px,10vw,130px)}
+        .divider__lotus{position:relative;z-index:2;display:flex;align-items:center;justify-content:center;width:clamp(100px,10vw,130px);height:clamp(100px,10vw,130px)}
 
         /* Golden burst behind the lotus where it meets the line */
         .lotus__burst{position:absolute;inset:-40px;background:radial-gradient(circle,rgba(201,169,78,.18) 0%,rgba(201,169,78,.06) 35%,transparent 65%);filter:blur(10px);animation:breathe 3s ease-in-out infinite}
@@ -143,7 +143,7 @@ export default function Hero() {
         .lotus__ring-2{position:absolute;inset:-8px;border-radius:50%;border:1px solid rgba(201,169,78,.14);animation:breathe 4s ease-in-out .5s infinite}
         .lotus__ring-1{width:100%;height:100%;border-radius:50%;border:2px solid rgba(201,169,78,.40);display:flex;align-items:center;justify-content:center;background:rgba(4,4,6,.80);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);box-shadow:0 0 30px var(--gold-glow),0 0 60px rgba(201,169,78,.08);animation:glowRing 4s ease-in-out infinite;position:relative}
         .lotus__ring-inner{position:absolute;inset:7px;border-radius:50%;border:1px solid rgba(201,169,78,.20)}
-        .lotus__img{width:clamp(52px,5.5vw,70px);height:auto;object-fit:contain;filter:drop-shadow(0 0 10px var(--gold-glow)) drop-shadow(0 0 20px rgba(201,169,78,.12));position:relative;z-index:1}
+        .lotus__img{width:clamp(48px,5vw,64px);height:auto;object-fit:contain;filter:drop-shadow(0 0 8px var(--gold-glow));position:relative;z-index:1}
 
         .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:clamp(12px,2.5vw,24px) clamp(16px,4.5vw,56px);padding-top:max(clamp(12px,2.5vw,24px),env(safe-area-inset-top))}
         .nav__left{display:flex;align-items:center;gap:clamp(8px,1.2vw,12px);text-decoration:none;cursor:pointer;transition:opacity .3s ease}
