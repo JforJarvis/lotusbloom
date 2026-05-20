@@ -127,14 +127,8 @@ export default function Hero() {
         .btn__arrow{font-size:clamp(11px,1.2vw,15px);transition:transform .3s ease}
         .btn:hover .btn__arrow{transform:translateX(3px)}
 
-        .lotus{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:20;pointer-events:none}
-        .lotus__ring{width:clamp(90px,9vw,124px);height:clamp(90px,9vw,124px);border-radius:50%;border:2px solid rgba(201,169,78,.40);display:flex;align-items:center;justify-content:center;background:rgba(4,4,6,.72);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);animation:glowRing 4s ease-in-out infinite;position:relative}
-        .lotus__ring::before{content:'';position:absolute;inset:7px;border-radius:50%;border:1.5px solid rgba(201,169,78,.22)}
-        .lotus__ring::after{content:'';position:absolute;inset:-16px;border-radius:50%;border:1px solid rgba(201,169,78,.10);animation:breathe 3s ease-in-out infinite}
-        .lotus__halo1{position:absolute;inset:-30px;border-radius:50%;border:1px solid rgba(201,169,78,.05);animation:breathe 4s ease-in-out .5s infinite}
-        .lotus__halo2{position:absolute;inset:-46px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,78,.06) 0%,transparent 70%);animation:breathe 5s ease-in-out 1s infinite}
-        .lotus__bloom{position:absolute;inset:-60px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,78,.08) 0%,rgba(201,169,78,.02) 40%,transparent 70%);filter:blur(8px)}
-        .lotus__img{width:clamp(44px,4.5vw,60px);height:clamp(44px,4.5vw,60px);border-radius:50%;object-fit:cover;filter:drop-shadow(0 0 12px var(--gold-glow)) drop-shadow(0 0 24px rgba(201,169,78,.15))}
+        .lotus{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:20;pointer-events:none;display:flex;align-items:center;justify-content:center}
+        .lotus__img{width:clamp(90px,10vw,140px);height:clamp(90px,10vw,140px);object-fit:contain;filter:drop-shadow(0 0 16px var(--gold-glow)) drop-shadow(0 0 40px rgba(201,169,78,.12))}
 
         .divider{position:absolute;left:50%;top:0;bottom:0;width:3px;margin-left:-1.5px;z-index:15;pointer-events:none;background:linear-gradient(180deg,transparent 2%,rgba(201,169,78,.15) 15%,rgba(201,169,78,.45) 45%,rgba(201,169,78,.55) 50%,rgba(201,169,78,.45) 55%,rgba(201,169,78,.15) 85%,transparent 98%);box-shadow:0 0 8px rgba(201,169,78,.15),0 0 20px rgba(201,169,78,.06)}
         .divider__shimmer{position:absolute;width:100%;height:60px;background:linear-gradient(180deg,transparent,rgba(201,169,78,.6),transparent);animation:shimmer 5s ease-in-out infinite}
@@ -143,7 +137,7 @@ export default function Hero() {
 
         .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:clamp(12px,2.5vw,24px) clamp(16px,4.5vw,56px);padding-top:max(clamp(12px,2.5vw,24px),env(safe-area-inset-top))}
         .nav__left{display:flex;align-items:center;gap:clamp(8px,1.2vw,12px)}
-        .nav__logo{width:clamp(34px,4vw,52px);height:clamp(34px,4vw,52px);border-radius:50%;object-fit:cover;filter:drop-shadow(0 0 8px var(--gold-glow)) drop-shadow(0 0 20px rgba(201,169,78,.12))}
+        .nav__logo{width:clamp(36px,4.2vw,56px);height:auto;object-fit:contain;filter:drop-shadow(0 0 8px var(--gold-glow)) drop-shadow(0 0 20px rgba(201,169,78,.12))}
         .nav__brand{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.8vw,32px);font-weight:600;font-style:italic;color:var(--gold);text-shadow:0 0 20px rgba(201,169,78,.15)}
         .nav__links{display:flex;gap:clamp(16px,2.5vw,36px);align-items:center}
         .nav__link{color:var(--text);font-size:clamp(11px,1vw,14px);font-weight:400;letter-spacing:.02em;font-family:'Outfit',sans-serif;transition:color .3s ease}
@@ -162,11 +156,7 @@ export default function Hero() {
           .btn{padding:12px 22px;font-size:9px}
           .divider{display:none}
           .lotus{top:50vh;top:50dvh}
-          .lotus__ring{width:78px;height:78px}
-          .lotus__img{width:40px;height:40px}
-          .lotus__halo1{inset:-20px}
-          .lotus__halo2{inset:-32px}
-          .lotus__bloom{inset:-40px}
+          .lotus__img{width:80px;height:80px}
           .nav__links{gap:14px}
           .nav__link{font-size:11px}
         }
@@ -174,11 +164,7 @@ export default function Hero() {
           .panel__content{padding:clamp(48px,8vh,70px) 18px clamp(22px,4vh,36px)}
           .title{font-size:clamp(24px,8vw,36px)}
           .btn{padding:11px 18px;font-size:8px;letter-spacing:.10em}
-          .lotus__ring{width:66px;height:66px}
-          .lotus__img{width:34px;height:34px}
-          .lotus__halo1{inset:-16px}
-          .lotus__halo2{inset:-26px}
-          .lotus__bloom{inset:-34px}
+          .lotus__img{width:68px;height:68px}
           .nav__links{display:none}
         }
         @media(max-width:375px){
@@ -189,7 +175,7 @@ export default function Hero() {
 
       <motion.nav className="nav" initial={{opacity:0,y:-10}} animate={{opacity:ready?1:0,y:ready?0:-10}} transition={{duration:.5,delay:.1}}>
         <div className="nav__left">
-          <img className="nav__logo" src="/logo.png" alt="LotusBloom"/>
+          <img className="nav__logo" src="/nav-logo.png" alt="LotusBloom"/>
           <span className="nav__brand">LotusBloom</span>
         </div>
         <div className="nav__links">
@@ -206,10 +192,7 @@ export default function Hero() {
         <Panel side="right" hover={R} ready={ready} px={px} py={py} onEnter={()=>setHov('right')} onLeave={()=>setHov(null)} onTap={()=>setHov(h=>h==='right'?null:'right')}/>
 
         <motion.div className="lotus" initial={{opacity:0,scale:.85}} animate={{opacity:ready?1:0,scale:ready?1:.85,y:py*-8}} transition={{duration:.6,delay:.2}}>
-          <div className="lotus__bloom"/>
-          <div className="lotus__halo2"/>
-          <div className="lotus__halo1"/>
-          <div className="lotus__ring"><img className="lotus__img" src="/logo.png" alt=""/></div>
+          <img className="lotus__img" src="/center-logo.png" alt=""/>
         </motion.div>
         <div className="divider"><div className="divider__shimmer"/><div className="divider__bloom"/><div className="divider__glow"/></div>
       </div>
