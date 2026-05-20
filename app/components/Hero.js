@@ -134,7 +134,7 @@ export default function Hero() {
         .lotus__ring-1{width:100%;height:100%;border-radius:50%;border:2px solid rgba(201,169,78,.40);display:flex;align-items:center;justify-content:center;background:rgba(4,4,6,.78);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 0 30px var(--gold-glow),0 0 60px rgba(201,169,78,.08);animation:glowRing 4s ease-in-out infinite;position:relative}
         .lotus__ring-inner{position:absolute;inset:7px;border-radius:50%;border:1px solid rgba(201,169,78,.20)}
         .lotus__glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(201,169,78,.10) 0%,rgba(201,169,78,.03) 50%,transparent 70%);filter:blur(6px);animation:breathe 3s ease-in-out infinite}
-        .lotus__img{width:clamp(48px,5vw,64px);height:clamp(48px,5vw,64px);border-radius:50%;object-fit:cover;filter:drop-shadow(0 0 8px var(--gold-glow));position:relative;z-index:1}
+        .lotus__img{width:clamp(48px,5vw,64px);height:auto;object-fit:contain;filter:drop-shadow(0 0 8px var(--gold-glow));position:relative;z-index:1}
 
         .divider{position:absolute;left:50%;top:0;bottom:0;width:3px;margin-left:-1.5px;z-index:15;pointer-events:none;background:linear-gradient(180deg,transparent 2%,rgba(201,169,78,.15) 15%,rgba(201,169,78,.45) 45%,rgba(201,169,78,.55) 50%,rgba(201,169,78,.45) 55%,rgba(201,169,78,.15) 85%,transparent 98%);box-shadow:0 0 8px rgba(201,169,78,.15),0 0 20px rgba(201,169,78,.06)}
         .divider__shimmer{position:absolute;width:100%;height:60px;background:linear-gradient(180deg,transparent,rgba(201,169,78,.6),transparent);animation:shimmer 5s ease-in-out infinite}
@@ -143,7 +143,7 @@ export default function Hero() {
 
         .nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:clamp(12px,2.5vw,24px) clamp(16px,4.5vw,56px);padding-top:max(clamp(12px,2.5vw,24px),env(safe-area-inset-top))}
         .nav__left{display:flex;align-items:center;gap:clamp(8px,1.2vw,12px)}
-        .nav__logo{width:clamp(34px,4vw,50px);height:clamp(34px,4vw,50px);border-radius:50%;object-fit:cover;filter:drop-shadow(0 0 6px var(--gold-glow))}
+        .nav__logo{width:clamp(36px,4.2vw,54px);height:auto;object-fit:contain}
         .nav__brand{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.8vw,32px);font-weight:600;font-style:italic;color:var(--gold);text-shadow:0 0 20px rgba(201,169,78,.15)}
         .nav__links{display:flex;gap:clamp(16px,2.5vw,36px);align-items:center}
         .nav__link{color:var(--text);font-size:clamp(11px,1vw,14px);font-weight:400;letter-spacing:.02em;font-family:'Outfit',sans-serif;transition:color .3s ease}
@@ -185,7 +185,7 @@ export default function Hero() {
 
       <motion.nav className="nav" initial={{opacity:0,y:-10}} animate={{opacity:ready?1:0,y:ready?0:-10}} transition={{duration:.5,delay:.1}}>
         <div className="nav__left">
-          <img className="nav__logo" src="/logo.png" alt="LotusBloom"/>
+          <img className="nav__logo" src="/nav-logo.png" alt="LotusBloom"/>
           <span className="nav__brand">LotusBloom</span>
         </div>
         <div className="nav__links">
@@ -208,7 +208,7 @@ export default function Hero() {
             <div className="lotus__ring-2"/>
             <div className="lotus__ring-1">
               <div className="lotus__ring-inner"/>
-              <img className="lotus__img" src="/logo.png" alt=""/>
+              <img className="lotus__img" src="/lotus-flower.png" alt=""/>
             </div>
           </div>
         </motion.div>
