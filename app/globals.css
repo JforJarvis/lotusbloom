@@ -1,7 +1,7 @@
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
 html { overflow-x: hidden; -webkit-text-size-adjust: 100%; }
-html, body { width: 100%; max-width: 100vw; min-height: 100vh; overflow-x: hidden; background: #020204; color: #eee9e0; font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
-body { overscroll-behavior-y: none; }
+html, body { width: 100%; max-width: 100vw; min-height: 100vh; min-height: 100dvh; overflow-x: hidden; background: #020204; color: #eee9e0; font-family: 'Outfit', sans-serif; -webkit-font-smoothing: antialiased; }
+body { overscroll-behavior-y: none; padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left); }
 ::-webkit-scrollbar { width: 3px; }
 ::-webkit-scrollbar-track { background: #020204; }
 ::-webkit-scrollbar-thumb { background: #181822; border-radius: 99px; }

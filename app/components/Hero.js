@@ -15,7 +15,6 @@ function DataOverlay({ active }) {
   const streams = useMemo(() => Array.from({ length: 8 }, () => ({
     x: 10 + Math.random() * 80, d: 1.5 + Math.random() * 2, dl: Math.random() * 3,
   })), [])
-
   return (
     <motion.div animate={{ opacity: active ? 1 : 0 }} transition={{ duration: 0.6 }}
       style={{ position: 'absolute', top: 0, left: 0, width: '50%', height: '100%', pointerEvents: 'none', zIndex: 4, overflow: 'hidden' }}>
@@ -59,7 +58,6 @@ function FarmOverlay({ active }) {
   const rays = useMemo(() => Array.from({ length: 4 }, (_, i) => ({
     x: 15 + i * 22, w: 8 + Math.random() * 12, d: 3 + Math.random() * 2, dl: i * 0.5,
   })), [])
-
   return (
     <motion.div animate={{ opacity: active ? 1 : 0 }} transition={{ duration: 0.6 }}
       style={{ position: 'absolute', top: 0, right: 0, width: '50%', height: '100%', pointerEvents: 'none', zIndex: 4, overflow: 'hidden' }}>
@@ -122,8 +120,65 @@ export default function Hero() {
         @keyframes sporeDrift{0%,100%{transform:translate(0,0);opacity:.3}25%{transform:translate(12px,-8px);opacity:.6}50%{transform:translate(20px,-4px);opacity:.4}75%{transform:translate(8px,-12px);opacity:.7}}
         @keyframes rayPulse{0%,100%{opacity:.5}50%{opacity:1}}
         @keyframes ambientPulse{0%,100%{opacity:.6}50%{opacity:1}}
-        @media(max-width:768px){.lb-bl{left:6%!important}.lb-br{right:6%!important}.lb-cta{padding:10px 18px!important;font-size:9px!important}.lb-nl{width:32px!important;height:32px!important}.lb-nb{font-size:18px!important}}
-        @media(max-width:480px){.lb-bl{left:4%!important}.lb-br{right:4%!important}.lb-cta{padding:8px 14px!important;font-size:8px!important;gap:8px!important}.lb-nl{width:28px!important;height:28px!important}.lb-nb{font-size:16px!important}}
+
+        /* ═══ 768px — Tablets & small laptops ═══ */
+        @media (max-width: 768px) {
+          .lb-nl { width: 34px !important; height: 34px !important; }
+          .lb-nb { font-size: 20px !important; }
+          .lb-about { font-size: 13px !important; }
+          .lb-bl {
+            left: 50% !important;
+            right: auto !important;
+            transform: translateX(-50%) !important;
+            bottom: 20% !important;
+          }
+          .lb-br {
+            right: auto !important;
+            left: 50% !important;
+            transform: translateX(-50%) !important;
+            bottom: 12% !important;
+          }
+          .lb-cta {
+            padding: 12px 22px !important;
+            font-size: 9px !important;
+            backdrop-filter: blur(10px) !important;
+            -webkit-backdrop-filter: blur(10px) !important;
+          }
+        }
+
+        /* ═══ 480px — Standard phones ═══ */
+        @media (max-width: 480px) {
+          .lb-nl { width: 28px !important; height: 28px !important; }
+          .lb-nb { font-size: 17px !important; }
+          .lb-about { font-size: 12px !important; padding-bottom: 3px !important; }
+          .lb-bl { bottom: 22% !important; }
+          .lb-br { bottom: 14% !important; }
+          .lb-cta {
+            padding: 10px 18px !important;
+            font-size: 8px !important;
+            gap: 8px !important;
+            letter-spacing: .1em !important;
+          }
+        }
+
+        /* ═══ 375px — iPhone SE / small phones ═══ */
+        @media (max-width: 375px) {
+          .lb-nl { width: 26px !important; height: 26px !important; }
+          .lb-nb { font-size: 15px !important; }
+          .lb-bl { bottom: 24% !important; }
+          .lb-br { bottom: 16% !important; }
+          .lb-cta {
+            padding: 9px 14px !important;
+            font-size: 7.5px !important;
+            gap: 6px !important;
+          }
+        }
+
+        /* ═══ 320px — Smallest screens ═══ */
+        @media (max-width: 320px) {
+          .lb-nb { font-size: 14px !important; }
+          .lb-cta { padding: 8px 12px !important; font-size: 7px !important; }
+        }
       `}</style>
 
       {/* Background */}
@@ -148,8 +203,10 @@ export default function Hero() {
 
       {/* Hover zones */}
       <div onMouseEnter={() => setHov('left')} onMouseLeave={() => setHov(null)}
+        onClick={() => setHov(prev => prev === 'left' ? null : 'left')}
         style={{ position: 'absolute', top: 0, left: 0, width: '50%', height: '100%', zIndex: 5, cursor: 'pointer' }} />
       <div onMouseEnter={() => setHov('right')} onMouseLeave={() => setHov(null)}
+        onClick={() => setHov(prev => prev === 'right' ? null : 'right')}
         style={{ position: 'absolute', top: 0, right: 0, width: '50%', height: '100%', zIndex: 5, cursor: 'pointer' }} />
 
       {/* Nav */}
@@ -157,14 +214,15 @@ export default function Hero() {
         transition={{ duration: 0.5, delay: 0.1 }}
         style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 10,
           display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-          padding: 'clamp(16px,2.5vw,28px) clamp(22px,4.5vw,56px)' }}>
+          padding: 'clamp(14px,2.5vw,28px) clamp(18px,4.5vw,56px)',
+          paddingTop: 'max(clamp(14px,2.5vw,28px), env(safe-area-inset-top))' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
           <img className="lb-nl" src="/logo.png" alt="LotusBloom"
             style={{ width: 42, height: 42, borderRadius: '50%', objectFit: 'cover' }} />
           <span className="lb-nb" style={{ fontFamily: "'Cormorant Garamond',serif",
             fontSize: 'clamp(22px,2.8vw,30px)', fontWeight: 600, fontStyle: 'italic', color: '#c9a94e' }}>LotusBloom</span>
         </div>
-        <a href="#" style={{ color: '#eee9e0', fontSize: 14, fontWeight: 400, letterSpacing: '.02em',
+        <a className="lb-about" href="#" style={{ color: '#eee9e0', fontSize: 14, fontWeight: 400, letterSpacing: '.02em',
           borderBottom: '2px solid #c9a94e', paddingBottom: 4, fontFamily: "'Outfit',sans-serif" }}>About</a>
       </motion.nav>
 

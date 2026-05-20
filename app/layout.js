@@ -7,7 +7,7 @@ export const metadata = {
   openGraph: { title: 'LotusBloom LLC', description: 'Data Operations & Agriculture', images: ['/hero.jpg'] },
 }
 
-export const viewport = { width: 'device-width', initialScale: 1, maximumScale: 1, themeColor: '#020204' }
+export const viewport = { width: 'device-width', initialScale: 1, maximumScale: 1, themeColor: '#020204', viewportFit: 'cover' }
 
 export default function RootLayout({ children }) {
   return (
