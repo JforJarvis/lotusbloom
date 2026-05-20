@@ -228,21 +228,25 @@ export default function Hero() {
         .panel-left .panel-gradient {
           background: linear-gradient(
             180deg,
-            rgba(2,2,4,.15) 0%,
-            rgba(2,2,4,.25) 30%,
-            rgba(2,2,4,.55) 55%,
-            rgba(2,2,4,.80) 75%,
-            rgba(2,2,4,.92) 100%
+            rgba(2,2,4,.12) 0%,
+            rgba(2,2,4,.30) 15%,
+            rgba(2,2,4,.70) 28%,
+            rgba(2,2,4,.94) 40%,
+            rgba(2,2,4,.98) 50%,
+            rgba(2,2,4,1) 60%,
+            rgba(2,2,4,1) 100%
           );
         }
         .panel-right .panel-gradient {
           background: linear-gradient(
             180deg,
-            rgba(2,2,4,.10) 0%,
-            rgba(2,2,4,.20) 30%,
-            rgba(2,2,4,.50) 55%,
-            rgba(2,2,4,.78) 75%,
-            rgba(2,2,4,.92) 100%
+            rgba(2,2,4,.08) 0%,
+            rgba(2,2,4,.25) 15%,
+            rgba(2,2,4,.65) 28%,
+            rgba(2,2,4,.94) 40%,
+            rgba(2,2,4,.98) 50%,
+            rgba(2,2,4,1) 60%,
+            rgba(2,2,4,1) 100%
           );
         }
 
